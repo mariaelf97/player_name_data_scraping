@@ -7,7 +7,7 @@ base_url = "https://www.soccerdonna.de/en/NOT-IMPORTANT/profil/spieler_{number}.
 data = []
 
 # Loop through the range of player numbers
-for number in range(450,650 ):  # <-- increase number here for more players
+for number in range(50000,100000):  # <-- increase number here for more players
     url = base_url.format(number=number)
     soup = BeautifulSoup(requests.get(url).content, "html.parser")
 
@@ -24,7 +24,7 @@ for number in range(450,650 ):  # <-- increase number here for more players
 
 # Convert the list of dictionaries to a DataFrame
 df = pd.DataFrame(data)
-df = df.drop_duplicates()
-df = df.pivot(index='name', columns='columns', values='value')
-df = df.query('Nationality=="Jamaica" or "Place of birth"=="Jamaica"')
-df.to_csv('player_names.csv')
+#df = df.drop_duplicates()
+#df = df.pivot(index='name', columns='columns', values='value')
+#df = df.query('Nationality=="Jamaica" or "Place of birth"=="Jamaica"')
+df.to_csv('player_names_4.csv')
